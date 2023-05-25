@@ -16,7 +16,7 @@ export default {
 
 <template>
         <div class="card h-100">
-            <img :src="project.cover" class="card-img-top" alt="...">
+            <img :src="project.cover" class="card-img-top" :alt="`Cover ${project.title}`">
             <div class="card-body d-flex flex-column align-items-start">
                 <h5 class="card-title flex-grow-1">{{ project.title }}</h5>
                 <p class="card-text">{{ `${project.description.substring(0, 100)} ...`}}</p>
@@ -27,7 +27,7 @@ export default {
                         <span v-else>{{ technology.technology }}</span>
                     </template>
                 </div>
-                <a :href="api+project.id" class="btn btn-primary align-self-start mt-auto">Go somewhere</a>
+                <a :href="api+project.id" class="btn btn-primary align-self-start mt-auto">More info</a>
             </div>
         </div>
 </template>
