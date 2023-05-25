@@ -1,4 +1,6 @@
 <script>
+import { store } from '../../store';
+
 export default {
     data() {
         return {
@@ -7,6 +9,7 @@ export default {
     },
     props: {
         project: Object,
+        api: String,
     }
 }
 </script>
@@ -24,7 +27,7 @@ export default {
                         <span v-else>{{ technology.technology }}</span>
                     </template>
                 </div>
-                <a href="#" class="btn btn-primary align-self-start mt-auto">Go somewhere</a>
+                <a :href="api+project.id" class="btn btn-primary align-self-start mt-auto">Go somewhere</a>
             </div>
         </div>
 </template>
