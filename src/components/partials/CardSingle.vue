@@ -1,5 +1,4 @@
 <script>
-import { store } from '../../store';
 
 export default {
     data() {
@@ -9,7 +8,7 @@ export default {
     },
     props: {
         project: Object,
-        api: String,
+        isSingle: Boolean,
     }
 }
 </script>
@@ -19,6 +18,7 @@ export default {
             <img :src="project.cover" class="card-img-top" :alt="`Cover ${project.title}`">
             <div class="card-body d-flex flex-column align-items-start">
                 <h5 class="card-title flex-grow-1">{{ project.title }}</h5>
+                <p v-if="isSingle" class="card-text">{{ project.description}}</p>
                 <p class="card-text">{{ `${project.description.substring(0, 100)} ...`}}</p>
                 <div>Type: {{ project.type ? project.type.category : 'Nessuna categoria' }}</div>
                 <div v-if="project.technologies.length">Technologies:
@@ -27,7 +27,7 @@ export default {
                         <span v-else>{{ technology.technology }}</span>
                     </template>
                 </div>
-                <a :href="api+project.id" class="btn btn-primary align-self-start mt-auto">More info</a>
+                <a href="#" class="btn btn-primary align-self-start mt-auto" @click="$emit('singleCall', project.id)">{{isSingle ? 'Go back' : 'More info'}}</a>
             </div>
         </div>
 </template>
