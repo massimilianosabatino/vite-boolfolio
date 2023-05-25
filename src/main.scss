@@ -1,2 +1,8 @@
-@use './assets/sass/abstracts' as *;
-@use './assets/sass/base' as *;
+//Vendor
+@use "./../node_modules/bootstrap/scss/bootstrap";
+
+
+@use 'assets/sass/abstracts/index' as *;
+@use 'assets/sass/base/index' as *;
+@use 'assets/sass/layout/index' as *;
+@use 'assets/sass/pages/index' as *;
