@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-    <div class="container">
+    <div class="container" v-cloak>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <div class="col" v-for="project in store.projects">
                 <CardSingle :project="project" :api="store.apiBaseUrl + store.projectApi"/>
