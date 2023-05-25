@@ -12,12 +12,11 @@ export default {
 </script>
 
 <template>
-    <div>
-        <div class="card">
+        <div class="card h-100">
             <img :src="project.cover" class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">{{ project.title }}</h5>
-                <p class="card-text">{{ project.description }}</p>
+            <div class="card-body d-flex flex-column align-items-start">
+                <h5 class="card-title flex-grow-1">{{ project.title }}</h5>
+                <p class="card-text">{{ `${project.description.substring(0, 100)} ...`}}</p>
                 <div>Type: {{ project.type ? project.type.category : 'Nessuna categoria' }}</div>
                 <div v-if="project.technologies.length">Technologies:
                     <template v-for="(technology, index) in project.technologies">
@@ -25,10 +24,9 @@ export default {
                         <span v-else>{{ technology.technology }}</span>
                     </template>
                 </div>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <a href="#" class="btn btn-primary align-self-start mt-auto">Go somewhere</a>
             </div>
         </div>
-    </div>
 </template>
 
 <style lang="scss" scoped></style>
