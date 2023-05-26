@@ -1,8 +1,29 @@
 <script>
+import axios from 'axios';
+import { store } from '../store';
 export default {
-    name: "CardSingle",
-    props: {
-        project: Object,
+    name: "SingleProject",
+    data() {
+        return {
+            store,
+            project: {},
+            id: this.$route.params.id
+        }
+    },
+    methods: {
+        getSingle(id) {
+            axios.get(this.store.apiBaseUrl + this.store.projectApi + id)
+                .then((response) => {
+                    this.project = response.data.results;
+                    console.log(this.project)
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
+        }
+    },
+    created() {
+        this.getSingle(this.id);
     }
 }
 </script>
@@ -12,7 +33,7 @@ export default {
         <img :src="project.cover" class="card-img-top" :alt="`Cover ${project.title}`">
         <div class="card-body d-flex flex-column align-items-start">
             <h5 class="card-title flex-grow-1">{{ project.title }}</h5>
-            <p class="card-text">{{ `${project.description.substring(0, 100)} ...` }}</p>
+            <p class="card-text">{{ project.description }}</p>
             <div>Type: {{ project.type ? project.type.category : 'Nessuna categoria' }}</div>
             <div v-if="project.technologies.length">Technologies:
                 <template v-for="(technology, index) in project.technologies">
@@ -20,9 +41,9 @@ export default {
                     <span v-else>{{ technology.technology }}</span>
                 </template>
             </div>
-            <router-link :to="{ name: 'project', params: { id: project.id } }"
+            <router-link :to="{ name: 'projects' }"
                 class="btn btn-primary align-self-start mt-auto">
-                More info
+                Go back
             </router-link>
         </div>
     </div>
