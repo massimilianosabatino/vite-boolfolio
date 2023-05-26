@@ -1,0 +1,6 @@
+.nav-link{
+    &.router-link-active {
+     color: #1a1a1a;
+     text-decoration: underline;   // background-color: lightblue;
+      }
+}

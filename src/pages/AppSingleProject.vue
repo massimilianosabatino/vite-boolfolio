@@ -17,7 +17,8 @@ export default {
                     this.project = response.data.results;
                 })
                 .catch((error) => {
-                    console.log(error);
+                    console.log('error',error);
+                    console.log('route', this.$route)
                 })
         }
     },
