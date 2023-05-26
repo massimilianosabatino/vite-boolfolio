@@ -15,7 +15,6 @@ export default {
             axios.get(this.store.apiBaseUrl + this.store.projectApi + id)
                 .then((response) => {
                     this.project = response.data.results;
-                    console.log(this.project)
                 })
                 .catch((error) => {
                     console.log(error);
@@ -35,7 +34,7 @@ export default {
             <h5 class="card-title flex-grow-1">{{ project.title }}</h5>
             <p class="card-text">{{ project.description }}</p>
             <div>Type: {{ project.type ? project.type.category : 'Nessuna categoria' }}</div>
-            <div v-if="project.technologies.length">Technologies:
+            <div v-if="(project?.technologies || []).length">Technologies:
                 <template v-for="(technology, index) in project.technologies">
                     <span v-if="index < project.technologies.length - 1">{{ technology.technology }} - </span>
                     <span v-else>{{ technology.technology }}</span>
