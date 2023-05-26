@@ -25,14 +25,25 @@ export default {
                     console.log(error);
                 })
         },
-        switchList(){
+        switchList() {
             this.list = true;
             this.single = false;
+        }, getProject() {
+            axios.get(this.store.apiBaseUrl + this.store.projectsApi)
+                .then((response) => {
+                    this.store.projects = response.data.results;
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
         }
     },
+    created() {
+        this.getProject();
+    },
     computed: {
-        switchState(){
-          return  this.single
+        switchState() {
+            return this.single
         }
 
     }
@@ -48,7 +59,7 @@ export default {
         </div>
     </div>
     <div class="container" v-if="single">
-        <CardSingle :project="singleProject" @singleCall="switchList" :isSingle="switchState"/>
+        <CardSingle :project="singleProject" @singleCall="switchList" :isSingle="switchState" />
     </div>
 </template>
 

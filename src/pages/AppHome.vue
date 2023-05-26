@@ -1,13 +1,13 @@
 <script>
-import MainAppComponent from '../components/MainAppComponent.vue';
+
 
 export default {
     name: "AppHome",
-    components: { MainAppComponent },
+    components: {  },
 }
 </script>
 <template>
-    <MainAppComponent />
+Home Page
 </template>
 <style>
 </style>
