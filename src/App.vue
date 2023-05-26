@@ -35,7 +35,7 @@ export default {
 
 <template>
   <HeaderAppComponent />
-  <MainAppComponent />
+  <router-view></router-view>
   <FooterAppComponent />
 </template>
 
