@@ -1,3 +1,10 @@
+.navbar-brand{
+    img{
+        max-width: 1.875rem;
+        height: auto;
+        display: block;
+    }
+}
 .nav-link{
     &.router-link-active {
      color: #1a1a1a;
