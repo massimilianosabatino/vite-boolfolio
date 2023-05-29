@@ -29,7 +29,7 @@ export default {
             <!-- /Project technologies - check if exist, then print each element -->
             <!-- /Project details -->
             <!-- Return button -->
-            <router-link :to="{ name: 'project', params: { id: project.id } }"
+            <router-link :to="{ name: 'project', params: { id: project.id, slug:project.slug } }"
                 class="btn btn-primary align-self-start mt-auto">
                 More info
             </router-link>
