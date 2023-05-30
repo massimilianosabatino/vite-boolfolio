@@ -3,19 +3,19 @@ import { store } from '../store';
 import axios from 'axios';
 
 export default {
-    name: "Technologies",
+    name: "AppTypes",
     data() {
         return {
             store,
-            technologies: Array,
+            types: Array,
         }
     },
     methods: {
         //Get all project from API
-        getProject() {
-            axios.get(this.store.apiBaseUrl + this.store.technologiesApi)
+        getTypes() {
+            axios.get(this.store.apiBaseUrl + this.store.typesApi)
                 .then((response) => {
-                    this.technologies = response.data.results;
+                    this.types = response.data.results;
                 })
                 .catch((error) => {
                     console.log(error);
@@ -24,18 +24,19 @@ export default {
     },
     created() {
         //Launch API call when the component is created
-        this.getProject();
+        this.getTypes();
     }
 }
 </script>
 <template>
     <div class="container">
         <div class="row my-3">
-            <h1>Technologies</h1>
+            <h1>Types</h1>
             <ul>
-                <li v-for="technology in technologies">
-                    <router-link :to="{name: 'technology', params: {slug: technology.slug} }" class="fw-semibold">
-                    {{ technology.technology }}
+                <li v-for="singleType in types">
+
+                    <router-link :to="{name: 'type', params: {slug: singleType.slug} }" class="fw-semibold">
+                    {{ singleType.category }}
                 </router-link>
                 </li>
             </ul>

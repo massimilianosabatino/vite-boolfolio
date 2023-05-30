@@ -6,15 +6,15 @@ export default {
     data() {
         return {
             store,
-            technology: {},
+            type: {},
             slug: this.$route.params.slug
         }
     },
     methods: {
         getSingle(slug) {
-            axios.get(this.store.apiBaseUrl + this.store.technologyApi + slug)
+            axios.get(this.store.apiBaseUrl + this.store.typeApi + slug)
                 .then((response) => {
-                    this.technology = response.data.results;
+                    this.type = response.data.results;
                 })
                 .catch((error) => {
                     console.log('error',error);
@@ -31,9 +31,9 @@ export default {
     <div class="container">
         <div class="row my-3">
             <div class="col">
-                <h1>{{ technology.technology }}</h1>
+                <h1>{{ type.category }}</h1>
                 <ul>
-                    <li v-for="project in technology.projects">
+                    <li v-for="project in type.projects">
                         {{ project.title }}
                     </li>
                 </ul>
@@ -42,7 +42,7 @@ export default {
         <div class="row">
             <div class="col-auto">
                 <!-- Return button -->
-                <router-link :to="{ name: 'technologies' }"
+                <router-link :to="{ name: 'types' }"
                     class="btn btn-primary btn-sm align-self-start mt-auto">
                     Return
                 </router-link>

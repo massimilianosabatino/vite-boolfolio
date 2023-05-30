@@ -59,7 +59,6 @@ export default {
                 return this.projects.filter(project => project.type.category === this.categorySelected);
             }
             if(this.technologySelected){
-                console.log(this.projects)
                 return this.projects.filter(project => project.technologies.find(({technology}) => technology === this.technologySelected));
             }
             return this.projects
