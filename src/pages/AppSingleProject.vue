@@ -18,7 +18,6 @@ export default {
                 })
                 .catch((error) => {
                     console.log('error',error);
-                    console.log('route', this.$route)
                 })
         }
     },
@@ -29,22 +28,24 @@ export default {
 </script>
 
 <template>
-    <div class="card h-100">
-        <img :src="project.cover" class="card-img-top" :alt="`Cover ${project.title}`">
-        <div class="card-body d-flex flex-column align-items-start">
-            <h5 class="card-title flex-grow-1">{{ project.title }}</h5>
-            <p class="card-text">{{ project.description }}</p>
-            <div>Type: {{ project.type ? project.type.category : 'Nessuna categoria' }}</div>
-            <div v-if="(project?.technologies || []).length">Technologies:
-                <template v-for="(technology, index) in project.technologies">
-                    <span v-if="index < project.technologies.length - 1">{{ technology.technology }} - </span>
-                    <span v-else>{{ technology.technology }}</span>
-                </template>
+    <div class="container my-3">
+        <div class="card h-100">
+            <img :src="project.cover" class="card-img-top" :alt="`Cover ${project.title}`">
+            <div class="card-body d-flex flex-column align-items-start">
+                <h5 class="card-title flex-grow-1">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description }}</p>
+                <div>Type: {{ project.type ? project.type.category : 'Nessuna categoria' }}</div>
+                <div v-if="(project?.technologies || []).length">Technologies:
+                    <template v-for="(technology, index) in project.technologies">
+                        <span v-if="index < project.technologies.length - 1">{{ technology.technology }} - </span>
+                        <span v-else>{{ technology.technology }}</span>
+                    </template>
+                </div>
+                <router-link :to="{ name: 'projects' }"
+                    class="btn btn-primary align-self-start mt-auto">
+                    Go back
+                </router-link>
             </div>
-            <router-link :to="{ name: 'projects' }"
-                class="btn btn-primary align-self-start mt-auto">
-                Go back
-            </router-link>
         </div>
     </div>
 </template>

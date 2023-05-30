@@ -71,10 +71,12 @@ export default {
 
 <template>
     <div class="container" v-cloak>
+        <!-- Filter projects -->
         <div class="row justify-content-end align-items-center my-3">
             <div class="col text-end">
                 <strong>Filters</strong>
             </div>
+            <!-- Type filter menu -->
             <div class="col-auto">
                 <div class="dropdown">
                     <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -82,14 +84,16 @@ export default {
                         Types
                     </button>
                     <ul class="dropdown-menu" v-if="types">
-                        <li :key="type.id" v-for="type in types">
-                        <a class="dropdown-item" href="#" @click.prevent="categorySelected = type.category">{{ type.category }}</a>
+                        <li :key="type.id" v-for="(type) in types">
+                            <a class="dropdown-item" href="#" @click.prevent="categorySelected = type.category">{{ type.category }}</a>
                         </li>
-                        <li><a class="dropdown-item" href="#" @click.prevent="categorySelected = null">Reset</a></li>
-
+                        <li>
+                            <a class="dropdown-item" href="#" @click.prevent="categorySelected = null">Reset</a>
+                        </li>
                     </ul>
                 </div>
             </div>
+            <!-- /Type filter menu -->
             <div class="col-auto">
                 <div class="dropdown">
                     <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -105,6 +109,7 @@ export default {
                 </div>
             </div>
         </div>
+        <!-- /Filter projects -->
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <!-- Project card for each project. Passing single project prop to each card -->
             <div class="col" v-for="project in projectList">
