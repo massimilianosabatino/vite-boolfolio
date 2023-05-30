@@ -41,10 +41,11 @@ export default {
                         <span v-else>{{ technology.technology }}</span>
                     </template>
                 </div>
-                <router-link :to="{ name: 'projects' }"
+                <button class="btn btn-primary align-self-start mt-auto" @click="this.$router.go(-1)">Go back</button>
+                <!-- <router-link :to="{ name: 'projects' }"
                     class="btn btn-primary align-self-start mt-auto">
                     Go back
-                </router-link>
+                </router-link> -->
             </div>
         </div>
     </div>

@@ -34,7 +34,11 @@ export default {
                 <h1>{{ type.category }}</h1>
                 <ul>
                     <li v-for="project in type.projects">
-                        {{ project.title }}
+                        <router-link :to="{ name: 'project', params: { id: project.id, slug:project.slug } }"
+                            class="btn btn-primary align-self-start mt-auto">
+                            {{ project.title }}
+                        </router-link>
+                        
                     </li>
                 </ul>
             </div>

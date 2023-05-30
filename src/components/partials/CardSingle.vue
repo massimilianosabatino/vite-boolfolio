@@ -26,14 +26,14 @@ export default {
                     <span v-else>{{ technology.technology }}</span>
                 </template>
             </div>
-            <!-- /Project technologies - check if exist, then print each element -->
+            <!-- /Project technologies -->
             <!-- /Project details -->
-            <!-- Return button -->
+            <!-- button -->
             <router-link :to="{ name: 'project', params: { id: project.id, slug:project.slug } }"
                 class="btn btn-primary align-self-start mt-auto">
                 More info
             </router-link>
-            <!-- /Return button -->
+            <!-- /button -->
         </div>
     </div>
 </template>
