@@ -7,6 +7,7 @@ import AppTechnologies from "./pages/AppTechnologies.vue";
 import AppTechnology from "./pages/AppTechnology.vue";
 import AppTypes from "./pages/AppTypes.vue";
 import AppSingleType from "./pages/AppSingleType.vue";
+import NotFound from "./pages/NotFound.vue"
 
 const router = createRouter({
     history: createWebHistory(),
@@ -45,6 +46,10 @@ const router = createRouter({
             path: '/type/:slug',
             name: 'type',
             component: AppSingleType,
+        },
+        {   path: '/:pathMatch(.*)*',
+            name: 'NotFound',
+            component: NotFound
         },
     ]
 });
