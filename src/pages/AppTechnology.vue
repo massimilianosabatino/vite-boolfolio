@@ -34,7 +34,10 @@ export default {
                 <h1>{{ technology.technology }}</h1>
                 <ul>
                     <li v-for="project in technology.projects">
-                        {{ project.title }}
+                        <router-link :to="{ name: 'project', params: { id: project.id, slug:project.slug } }"
+                            class="">
+                            {{ project.title }}
+                        </router-link>
                     </li>
                 </ul>
             </div>

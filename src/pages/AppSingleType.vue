@@ -35,7 +35,7 @@ export default {
                 <ul>
                     <li v-for="project in type.projects">
                         <router-link :to="{ name: 'project', params: { id: project.id, slug:project.slug } }"
-                            class="btn btn-primary align-self-start mt-auto">
+                            class="">
                             {{ project.title }}
                         </router-link>
                         
