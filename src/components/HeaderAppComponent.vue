@@ -34,6 +34,16 @@ export default {
                             </router-link>
                         </li>
                         <li class="nav-item">
+                            <router-link :to="{ name: 'technologies' }" class="nav-link">
+                                Tecnologie
+                            </router-link>
+                        </li>
+                        <li class="nav-item">
+                            <router-link :to="{ name: 'types' }" class="nav-link">
+                                Tipologie
+                            </router-link>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="#">Contatti</a>
                         </li>
                     </ul>
