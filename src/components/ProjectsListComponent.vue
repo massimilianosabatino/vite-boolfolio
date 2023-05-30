@@ -111,7 +111,7 @@ export default {
         <!-- /Filter projects -->
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <!-- Project card for each project. Passing single project prop to each card -->
-            <div class="col" v-for="project in projectList">
+            <div class="col projects" v-for="project in projectList">
                 <CardSingle :project="project" />
             </div>
             <!-- /Project card for each project -->
