@@ -85,6 +85,8 @@ export default {
                         <li :key="type.id" v-for="type in types">
                         <a class="dropdown-item" href="#" @click.prevent="categorySelected = type.category">{{ type.category }}</a>
                         </li>
+                        <li><a class="dropdown-item" href="#" @click.prevent="categorySelected = null">Reset</a></li>
+
                     </ul>
                 </div>
             </div>
@@ -98,7 +100,7 @@ export default {
                         <li :key="technology.id" v-for="technology in technologies">
                         <a class="dropdown-item" href="#" @click.prevent="technologySelected = technology.technology">{{ technology.technology }}</a>
                         </li>
-                        <li><a class="dropdown-item" href="#" @click.prevent="technologySelected = null">reset</a></li>
+                        <li><a class="dropdown-item" href="#" @click.prevent="technologySelected = null">Reset</a></li>
                     </ul>
                 </div>
             </div>
