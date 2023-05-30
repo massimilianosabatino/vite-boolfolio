@@ -7,6 +7,9 @@ export default {
         return {
             store,
             projects: [],
+            types: null,
+            category: null
+            
         };
     },
     components: { CardSingle },
@@ -20,20 +23,57 @@ export default {
                 .catch((error) => {
                     console.log(error);
                 })
+        },
+        //Get all categories
+        getTypes(){
+            axios.get(this.store.apiBaseUrl + this.store.typesApi)
+                .then((response) => {
+                    this.types = response.data.results;
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
         }
     },
     created() {
         //Launch API call when the component is created
         this.getProject();
+        this.getTypes();
+    },
+    computed: {
+        projectList(){
+            if(this.category){
+                return this.projects.filter(project => project.type.category === this.category);
+            }
+            return this.projects
+        }
     }
 }
 </script>
 
 <template>
     <div class="container" v-cloak>
+        <div class="row justify-content-end align-items-center my-3">
+            <div class="col text-end">
+                <strong>Filters</strong>
+            </div>
+            <div class="col-auto">
+                <div class="dropdown">
+                    <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Types
+                    </button>
+                    <ul class="dropdown-menu" v-if="types">
+                        <li :key="type.id" v-for="type in types">
+                        <a class="dropdown-item" href="#" @click.prevent="category = type.category">{{ type.category }}</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
         <div class="row row-cols-1 row-cols-md-3 g-4">
             <!-- Project card for each project. Passing single project prop to each card -->
-            <div class="col" v-for="project in projects">
+            <div class="col" v-for="project in projectList">
                 <CardSingle :project="project" />
             </div>
             <!-- /Project card for each project -->
