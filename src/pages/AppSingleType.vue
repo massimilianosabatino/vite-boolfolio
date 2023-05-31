@@ -19,6 +19,8 @@ export default {
                 .catch((error) => {
                     console.log('error',error);
                     console.log('route', this.$route)
+                    if(error.response.status === 404)
+                    this.$router.push({name: 'NotFound'});
                 })
         }
     },

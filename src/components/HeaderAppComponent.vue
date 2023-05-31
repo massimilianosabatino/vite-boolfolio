@@ -44,7 +44,9 @@ export default {
                             </router-link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Contatti</a>
+                            <router-link :to="{ name: 'contacts' }" class="nav-link">
+                                Contatti
+                            </router-link>
                         </li>
                     </ul>
                 </div>
