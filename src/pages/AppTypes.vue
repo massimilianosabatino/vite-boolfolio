@@ -31,17 +31,22 @@ export default {
 <template>
     <div class="container">
         <div class="row my-3">
-            <h1>Types</h1>
-            <ul>
-                <li v-for="singleType in types">
-
-                    <router-link :to="{name: 'type', params: {slug: singleType.slug} }" class="fw-semibold">
-                    {{ singleType.category }}
-                </router-link>
-                </li>
-            </ul>
+            <div class="col">
+                <h1>Types</h1>
+                <ul class="my-4">
+                    <li v-for="singleType in types">
+    
+                        <router-link :to="{name: 'type', params: {slug: singleType.slug} }" class="fw-semibold">
+                        {{ singleType.category }}
+                    </router-link>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
-<style>
+<style scoped>
+h1{
+    text-transform: capitalize;
+}
 </style>

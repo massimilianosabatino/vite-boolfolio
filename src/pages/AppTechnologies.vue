@@ -33,16 +33,21 @@ export default {
 <template>
     <div class="container">
         <div class="row my-3">
-            <h1>Technologies</h1>
-            <ul>
-                <li v-for="technology in technologies">
-                    <router-link :to="{name: 'technology', params: {slug: technology.slug} }" class="fw-semibold">
-                    {{ technology.technology }}
-                </router-link>
-                </li>
-            </ul>
+            <div class="col">
+                <h1>Technologies</h1>
+                <ul class="my-4">
+                    <li v-for="technology in technologies">
+                        <router-link :to="{name: 'technology', params: {slug: technology.slug} }" class="fw-semibold">
+                        {{ technology.technology }}
+                    </router-link>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </template>
-<style>
+<style scoped>
+h1{
+    text-transform: capitalize;
+}
 </style>
