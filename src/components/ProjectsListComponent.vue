@@ -10,7 +10,8 @@ export default {
             types: null,
             categorySelected: null,
             technologies: null,
-            technologySelected: null
+            technologySelected: null,
+            loading: true,
             
         };
     },
@@ -21,6 +22,7 @@ export default {
             axios.get(this.store.apiBaseUrl + this.store.projectsApi)
                 .then((response) => {
                     this.projects = response.data.results;
+                    this.loading = false;
                 })
                 .catch((error) => {
                     console.log(error);
@@ -69,6 +71,11 @@ export default {
 </script>
 
 <template>
+    <div v-if="loading" class="container">
+        <div class="row justify-content-center align-items-center">
+            <div class="lds-ripple"><div></div><div></div></div>
+        </div>
+    </div>
     <div id="projects-list" class="container" v-cloak>
         <!-- Filter projects -->
         <div class="row justify-content-end align-items-center my-3">
