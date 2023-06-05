@@ -7,7 +7,9 @@ export default {
 }
 </script>
 <template>
-Home Page
+<div class="home">
+    Home
+</div>
 </template>
 <style>
 </style>
