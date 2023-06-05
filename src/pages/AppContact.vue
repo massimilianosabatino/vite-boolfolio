@@ -28,6 +28,11 @@ export default {
                     console.log(response)
                     if (response.status === 201) { //created
                         this.lead = response.data;
+                        this.formData = {
+                            name: '',
+                            email: '',
+                            message: ''
+                        }
                     }
                 })
                 .catch((error) => {
