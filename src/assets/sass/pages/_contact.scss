@@ -1,0 +1,20 @@
+@use '../abstracts/index' as ab;
+
+#contact{
+    label{
+        color: ab.$secondary-color;
+    }
+
+    input, textarea{
+        background-color: #c8c8c8;
+    }
+
+    .btn-primary{
+        background-color: ab.$secondary-color;
+        border-color: ab.$secondary-color;
+        
+        &:hover{
+            background-color: #17513c;
+        }
+    }
+}

@@ -38,9 +38,9 @@ export default {
 }
 </script>
 <template>
-    <div class="container">
-        <div class="row">
-            <div class="col">
+    <div id="contact" class="container">
+        <div class="row justify-content-center my-5">
+            <div class="col col-lg-8">
                 <h3>Contattami</h3>
                 <form @submit.prevent="sendMessage">
                     <div class="mb-3">
