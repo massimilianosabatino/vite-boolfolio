@@ -69,10 +69,10 @@ export default {
 </script>
 
 <template>
-    <div class="container" v-cloak>
+    <div id="projects-list" class="container" v-cloak>
         <!-- Filter projects -->
         <div class="row justify-content-end align-items-center my-3">
-            <div class="col text-end">
+            <div class="col text-end filter">
                 <strong>Filters</strong>
             </div>
             <!-- Type filter menu -->

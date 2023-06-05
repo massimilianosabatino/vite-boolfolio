@@ -1,0 +1,15 @@
+@use '../abstracts/index' as ab;
+
+#projects-list{
+    .filter{
+        color: #bdbdbd;
+    }
+    .btn-secondary{
+        background-color: ab.$secondary-color;
+        border-color: ab.$secondary-color;
+
+        &:hover{
+            background-color: #17513c;
+        }
+    }
+}

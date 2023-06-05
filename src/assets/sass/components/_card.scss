@@ -1,9 +1,23 @@
+@use '../abstracts/index' as ab;
+
 .projects {
     .card {
+        &:hover{
+            scale: 1.05;
+        }
         .card-img-top {
             max-height: 14.75rem;
             object-fit: cover;
             object-position: top;
+        }
+
+        .btn-primary{
+            background-color: ab.$secondary-color;
+            border-color: ab.$secondary-color;
+            
+            &:hover{
+                background-color: #17513c;
+            }
         }
     }
 }

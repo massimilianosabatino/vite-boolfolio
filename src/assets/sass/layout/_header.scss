@@ -1,3 +1,10 @@
+@use '../abstracts/index' as ab;
+
+.navbar {
+    background-color: #000000 !important;
+
+    
+}
 .navbar-brand{
     img{
         max-width: 1.875rem;
@@ -6,8 +13,15 @@
     }
 }
 .nav-link{
+    color: #fff;
+    &:hover{
+        color: ab.$primary-color;
+    }
     &.router-link-active {
-     color: #1a1a1a;
+     color: ab.$primary-color;
      text-decoration: underline;   // background-color: lightblue;
       }
+}
+.navbar-toggler-icon{
+    filter: invert(1);
 }
