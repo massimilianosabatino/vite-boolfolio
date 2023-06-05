@@ -1,0 +1,13 @@
+@use '../abstracts/index' as ab;
+
+h1{
+    color: ab.$primary-color;
+}
+
+h2{
+    color: ab.$secondary-color;
+}
+
+h3{
+    color: #e8e8e8;
+}
